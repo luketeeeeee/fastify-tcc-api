@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model hops {
+  id                 String              @id
+  ipAddresses        String[]
+  rttHopTimes        Float[]
+  tracerouteReportId String?
+  traceroute_reports traceroute_reports? @relation(fields: [tracerouteReportId], references: [id])
+}
+
+model ping_reports {
+  id                 String   @id
+  ipAddress          String
+  packetsTransmitted Int
+  packetsReceived    Int
+  packetLoss         Float
+  time               Int
+  rttMin             Float
+  rttAvg             Float
+  rttMax             Float
+  rttMDev            Float
+  datetime           DateTime @default(now())
+}
+
+model traceroute_reports {
+  id        String   @id
+  ipAddress String
+  datetime  DateTime @default(now())
+  hops      hops[]
+}
