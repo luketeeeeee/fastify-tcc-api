@@ -1,3 +1,7 @@
 import { FastifyInstance } from "fastify";
 
-export const pingRoutes = async (server: FastifyInstance) => {};
+import { pingReportController } from "./controllers";
+
+export const pingRoutes = async (server: FastifyInstance) => {
+  server.post("/", pingReportController);
+};

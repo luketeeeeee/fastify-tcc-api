@@ -13,7 +13,7 @@ fastify.route({
 
 const startServer = async () => {
   // this is how you register a route
-  fastify.register(pingRoutes, { prefix: "api/users" });
+  fastify.register(pingRoutes, { prefix: "api/ping-reports" });
 
   try {
     await fastify.listen({ port: 3000 });
