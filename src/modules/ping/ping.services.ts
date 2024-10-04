@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import prisma from "../../prisma";
+import prisma from "../../utils/prisma";
 
 export const findAllPingReports = () => {
   return prisma.ping_reports.findMany({});
