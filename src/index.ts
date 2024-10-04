@@ -1,16 +1,20 @@
 import Fastify from "fastify";
+import { pingRoutes } from "./modules/ping/ping.routes";
 
 const fastify = Fastify();
 
 fastify.route({
   method: "GET",
-  url: "/",
+  url: "/health-check",
   handler: () => {
-    return { hello: "world" };
+    return { ok: true };
   },
 });
 
 const startServer = async () => {
+  // this is how you register a route
+  fastify.register(pingRoutes, { prefix: "api/ping-reports" });
+
   try {
     await fastify.listen({ port: 3000 });
     console.log(
