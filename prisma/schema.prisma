@@ -16,7 +16,7 @@ model hops {
 }
 
 model ping_reports {
-  id                 String   @id
+  id                 String   @id @default(uuid())
   ipAddress          String
   packetsTransmitted Int
   packetsReceived    Int

@@ -16,6 +16,6 @@ export const updatePingReport = (
   return prisma.ping_reports.update({ where: { id }, data });
 };
 
-export const deletePingReport = (id: string) => {
+export const deletePingReportById = (id: string) => {
   return prisma.ping_reports.delete({ where: { id } });
 };
