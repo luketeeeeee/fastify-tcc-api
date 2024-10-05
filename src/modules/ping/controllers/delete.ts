@@ -1,7 +1,7 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { deletePingReportById } from "../ping.services";
 
-export const findAll = async (
+export const remove = async (
   request: FastifyRequest<{ Params: { pingReportId: string } }>,
   reply: FastifyReply,
 ) => {

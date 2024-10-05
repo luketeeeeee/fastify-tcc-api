@@ -27,8 +27,6 @@ export const create = async (
       data: newPingReport,
     });
   } catch (error) {
-    console.error("Erro ao criar o PingReport:", error);
-
     return reply.status(500).send({
       success: false,
       message: { error: (error as Error).message },
